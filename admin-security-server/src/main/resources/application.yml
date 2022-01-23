@@ -1,0 +1,18 @@
+server:
+  port: 9301
+spring:
+  application:
+    name: admin-security-server
+  security:
+    user:
+      name: GTsung
+      password: 123456
+  boot:
+    admin:
+      discovery:
+        # 不顯示admin-server監控信息
+        ignored-services: ${spring.application.name}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
