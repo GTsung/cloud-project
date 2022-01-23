@@ -1,0 +1,17 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: config-client
+  cloud:
+    # /{label}/{application}-{profile}.yml
+    # 配置文件全名config-client-dev.yml
+    config:
+      label: dev # 分支名稱
+      uri: http://localhost:8223 # config-server的端口
+      name: config-client # 配置文件名稱
+      profile: dev # 配置文件後綴名稱
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
