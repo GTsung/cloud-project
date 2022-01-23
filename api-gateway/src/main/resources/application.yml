@@ -1,0 +1,28 @@
+server:
+  port: 9100
+service-url:
+  hello-service: http://localhost:9002
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: path_route
+          uri: ${service-url.hello-service}/hello
+          # 斷言，路徑匹配的路由
+          predicates:
+            - Path=/hello
+      # 自動按照serviceId進行路由
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true #使用小写服务名，默认是大写
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
+# 調整gateway的log級別
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
