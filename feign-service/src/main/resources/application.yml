@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: feign-service
+  # 用於鏈路跟蹤，需要下載zipkin-server，9411是其端口
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 0.1 # 抽樣概率
 eureka:
   client:
     service-url:
