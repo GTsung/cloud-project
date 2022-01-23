@@ -1,0 +1,17 @@
+server:
+  port: 8223
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:GTsung/cloud-properties.git
+          username: GTsung
+          password: .gxc.000
+          clone-on-start: true # 啓動即拉取
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
