@@ -16,3 +16,7 @@ spring:
       discovery:
         enabled: true
         service-id: config-server # 配置服務的applicationName
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/

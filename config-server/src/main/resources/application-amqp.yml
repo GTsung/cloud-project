@@ -1,0 +1,32 @@
+server:
+  port: 8225
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:GTsung/cloud-properties.git
+          username: GTsung
+          password: 123456
+          clone-on-start: true # 啓動即拉取
+  rabbitmq:
+    virtual-host: /
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+####
+# 可以配合github網頁的webHooks來自動刷新，每當push代碼更新配置文件時就自動使用總綫拉取
+# http://localhost:8225/actuator/bus-refresh/{destination}
+####
