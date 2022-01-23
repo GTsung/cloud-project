@@ -1,0 +1,17 @@
+server:
+  port: 8224
+spring:
+  application:
+    name: config-security-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:GTsung/cloud-properties.git
+          username: GTsung
+          password: 123456
+          clone-on-start: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/

@@ -1,0 +1,18 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: dev
+      # 如果config-server是個集群，去掉uri配置加入discovery.service-id=config-server
+#      uri: http://localhost:8223
+      profile: dev
+      name: config-client
+      # config-server加入了security的依賴，客戶端需要附上代碼托管網站的用戶名密碼
+      username: GTsung
+      password: 123456
+      discovery:
+        enabled: true
+        service-id: config-server # 配置服務的applicationName
