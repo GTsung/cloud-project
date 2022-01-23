@@ -1,0 +1,20 @@
+server:
+  port: 8220
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: eureka01 # 需要配置host文件映射  localhost eureka01
+    # 每30秒发送一次心跳，检测服务是否存活
+    lease-renewal-interval-in-seconds: 30
+    # 超过90秒心跳无反应则剔除，剔除的任务是由eureka的定时任务完成的，定时任务每隔60秒执行
+    lease-expiration-duration-in-seconds: 90
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka02:8221/eureka/,http://eureka03:8222/eureka/
+
+# idea配置vmoptions : -Dspring.profiles.active=eureka01
+# application-{active}.yml

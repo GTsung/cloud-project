@@ -1,0 +1,22 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: zuul-proxy
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8220/eureka/
+# 配置路由
+zuul:
+  routes:
+    eureka-client:
+      path: /helloService/**
+    feign-service:
+      path: /feignService/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'routes'
+

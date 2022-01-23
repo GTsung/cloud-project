@@ -1,0 +1,20 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: hystrix-service
+eureka:
+#  instance:
+#    instanceId: ${spring.application.name}
+#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+#      defaultZone: http://eureka01:8220/eureka/,http://eureka02:8221/eureka/,http://eureka03:8222/eureka/
+      defaultZone: http://localhost:8220/eureka/
+# 通過applicationName對某個服務進行調用
+url:
+  service: http://eureka-client
