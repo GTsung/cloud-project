@@ -9,7 +9,7 @@ spring:
         git:
           uri: git@github.com:GTsung/cloud-properties.git
           username: GTsung
-          password: .gxc.000
+          password: 123456
           clone-on-start: true # 啓動即拉取
 eureka:
   client:
