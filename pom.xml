@@ -19,6 +19,7 @@
         <module>admin-security-server</module>
         <module>oauth2-server</module>
         <module>oauth2-jwt-server</module>
+        <module>oauth2-client</module>
     </modules>
 
     <!--父项目指定boot依赖-->
